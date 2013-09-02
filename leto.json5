@@ -1,0 +1,18 @@
+{   "name": "express-mongo",
+    "version": "0.0.0",                                                   
+    "github": {                                                           
+        "user": "ZECTBynmo",                                              
+        "repo": ""
+    }, 
+
+    "procedure": [
+        {   "title": "",
+            "type": "replace",
+
+            "keywords": {
+                "main_heading": "Main Heading String",
+                "drop_area_text": "Drop area text",
+            }
+        },
+    ]
+}
