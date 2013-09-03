@@ -2,11 +2,6 @@ var AppRouter = Backbone.Router.extend({
 
     routes: {
         ""                      : "home",
-        "templates"	            : "list",
-        "templates/page/:page"	: "list",
-        "templates/add"         : "addTemplate",
-        "templates/:id"         : "templateDetails",
-        "templates/:users"      : "list",
         "about"                 : "about"
     },
 
@@ -22,29 +17,6 @@ var AppRouter = Backbone.Router.extend({
         $('#content').html(this.homeView.el);
         this.headerView.selectMenuItem('home-menu');
     },
-
-	list: function(page) {
-        var p = page ? parseInt(page, 10) : 1;
-        var templateList = new TemplateCollection();
-        templateList.fetch({success: function(){
-            $("#content").html(new TemplateListView({model: templateList, page: p}).el);
-        }});
-        this.headerView.selectMenuItem('home-menu');
-    },
-
-    templateDetails: function (id) {
-        var template = new Template({_id: id});
-        template.fetch({success: function(){
-            $("#content").html(new TemplateView({model: template}).el);
-        }});
-        this.headerView.selectMenuItem();
-    },
-
-	addTemplate: function() {
-        var template = new Template();
-        $('#content').html(new TemplateView({model: template}).el);
-        this.headerView.selectMenuItem('add-menu');
-	},
 
     about: function () {
         if (!this.aboutView) {
