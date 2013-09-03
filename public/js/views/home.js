@@ -59,9 +59,13 @@ window.HomeView = Backbone.View.extend({
 
 			$.post('/upload', current_file, function(data, textStatus, jqXHR) {
 
+				
 				if ( jqXHR.status == 200 ) {
-					console.log( data.id );
-					window.location.href = "http://localhost:2020/converted/" + data.id + "/index.html";
+					$(".file." + current_file_id + " .progress", this.el).html("Uploaded");
+
+					// Redirect to somewhere here with a successful upload
+//					console.log( data.id );
+//					window.location.href = "http://localhost:2020/uploaded/" + data.id;
 
 				} else {
 					$(".file." + current_file_id + " .progress", this.el).html("Failed");
